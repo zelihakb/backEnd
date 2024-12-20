@@ -6,4 +6,6 @@ Bu proje Vercel üzerinde yayınlanmıştır. Aşağıdaki linkten erişebilirsi
 
 [Postman Koleksiyonu]("schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json")
 
-![Testlerin Başarılı Olduğu Görüntü](tests.png)
+![Testlerin Başarılı Olduğu Görüntü](https://github.com/user-attachments/assets/c4bfe98b-9f59-49ae-a98c-7440d176f006)
+
+
