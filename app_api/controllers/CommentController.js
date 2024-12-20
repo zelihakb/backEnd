@@ -80,12 +80,49 @@ const getComment = async function (req, res) {
     createResponse(res, "400", { status: "böyle bir yorum yoktur" });
   }
 };
-const updateComment = function (req, res) {
-  createResponse(res, "201", { status: "success" });
+const updateComment = async function (req, res) {
+  try {
+    await Venue.findById(req.params.venueid)
+      .select("comments")
+      .exec()
+      .then(function (venue) {
+        try {
+          let comment = venue.comments.id(req.params.commentid);
+          comment.set(req.body);
+          venue.save().then(function () {
+            updateRating(venue._id, false);
+            createResponse(res, "201", comment);
+          });
+        } catch (error) {
+          createResponse(res, "400", error);
+        }
+      });
+  } catch {
+    createResponse(res, "400", error);
+  }
 };
-
-const deleteComment = function (req, res) {
-  createResponse(res, "200", { status: "success" });
+const deleteComment = async function (req, res) {
+  try {
+    await Venue.findById(req.params.venueid)
+      .select("comments")
+      .exec()
+      .then(function (venue) {
+        try {
+          let comment = venue.comments.id(req.params.commentid);
+          comment.deleteOne();
+          venue.save().then(function () {
+            updateRating(venue._id, true);
+            createResponse(res, "200", {
+              status: comment.author + " isimli kişinin yorumu silindi",
+            });
+          });
+        } catch (error) {
+          createResponse(res, "400", error);
+        }
+      });
+  } catch (error) {
+    createResponse(res, "400", error);
+  }
 };
 
 module.exports = {
