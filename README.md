@@ -2,7 +2,7 @@
 
 Bu proje Vercel üzerinde yayınlanmıştır. Aşağıdaki linkten erişebilirsiniz:
 
-[API Adresi (Vercel)](https://backend-wheat-chi.vercel.app/).
+[API Adresi-Vercel](https://backend-wheat-chi.vercel.app/)
 
 [Postman Koleksiyonu](Uploading Zeliha Küçükbayraktar.postman_collection.json…)
 
