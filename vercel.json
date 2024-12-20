@@ -1,20 +1,9 @@
 {
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/app_api",
       "dest": "app.js"
     }
   ]
 }
-{
-  "routes": [
-    {
-      "src": "/app_api/(.*)",
-      "dest": "api/$1.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "public/$1"
-    }
-  ]
-}
+
